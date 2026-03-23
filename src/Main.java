@@ -4,18 +4,18 @@ public class Main {
     public static void main(String[] args) {
         String word = "madam";
 
-        Deque<Character> deque = new LinkedList<>();
+        LinkedList<Character> list = new LinkedList<>();
 
-        // add all characters to deque
+        // add characters to LinkedList
         for (char c : word.toCharArray()) {
-            deque.add(c);
+            list.add(c);
         }
 
         boolean isPalindrome = true;
 
-        // compare front and rear
-        while (deque.size() > 1) {
-            if (deque.removeFirst() != deque.removeLast()) {
+        // compare first and last elements
+        while (list.size() > 1) {
+            if (!list.removeFirst().equals(list.removeLast())) {
                 isPalindrome = false;
                 break;
             }
