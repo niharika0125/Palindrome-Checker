@@ -4,20 +4,18 @@ public class Main {
     public static void main(String[] args) {
         String word = "madam";
 
-        Queue<Character> queue = new LinkedList<>();
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> deque = new LinkedList<>();
 
-        // add characters to both queue and stack
+        // add all characters to deque
         for (char c : word.toCharArray()) {
-            queue.add(c);
-            stack.push(c);
+            deque.add(c);
         }
 
         boolean isPalindrome = true;
 
-        // compare queue (FIFO) with stack (LIFO)
-        while (!queue.isEmpty()) {
-            if (!queue.remove().equals(stack.pop())) {
+        // compare front and rear
+        while (deque.size() > 1) {
+            if (deque.removeFirst() != deque.removeLast()) {
                 isPalindrome = false;
                 break;
             }
