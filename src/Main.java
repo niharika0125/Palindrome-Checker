@@ -1,14 +1,18 @@
 public class Main {
     public static void main(String[] args) {
         String word = "madam";
-        String reversed = "";
+        char[] arr = word.toCharArray();
 
-        // reverse string
-        for (int i = word.length() - 1; i >= 0; i--) {
-            reversed += word.charAt(i);
+        boolean isPalindrome = true;
+
+        for (int i = 0; i < arr.length / 2; i++) {
+            if (arr[i] != arr[arr.length - 1 - i]) {
+                isPalindrome = false;
+                break;
+            }
         }
 
-        if (word.equals(reversed)) {
+        if (isPalindrome) {
             System.out.println(word + " is a Palindrome");
         } else {
             System.out.println(word + " is not a Palindrome");
